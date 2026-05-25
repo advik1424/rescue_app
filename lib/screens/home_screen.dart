@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
+import 'emergency_services_screen.dart';
 
 class HomeScreen extends StatefulWidget {
 
@@ -471,27 +472,41 @@ class _HomeScreenState extends State<HomeScreen> {
   child: navItem(Icons.map, "Map", false),
 ),
 
-            Container(
-              height: 65,
-              width: 65,
+           GestureDetector(
+  onTap: () {
 
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.red,
+    Navigator.push(
+      context,
 
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.red.withOpacity(0.6),
-                    blurRadius: 25,
-                  ),
-                ],
-              ),
+      MaterialPageRoute(
+        builder: (context) =>
+            const EmergencyServicesScreen(),
+      ),
+    );
+  },
 
-              child: const Icon(
-                Icons.notifications_active,
-                color: Colors.white,
-              ),
-            ),
+  child: Container(
+    height: 65,
+    width: 65,
+
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      color: Colors.red,
+
+      boxShadow: [
+        BoxShadow(
+          color: Colors.red.withOpacity(0.6),
+          blurRadius: 25,
+        ),
+      ],
+    ),
+
+    child: const Icon(
+      Icons.notifications_active,
+      color: Colors.white,
+    ),
+  ),
+),
 
             navItem(Icons.people, "Contacts", false),
 
